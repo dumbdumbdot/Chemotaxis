@@ -32,17 +32,27 @@ class Bacteria
   }
   void move() 
   {
-    myX = myX + (int)(Math.random()*5)-2;
-    myY = myY + (int)(Math.random()*5)-2;
+    if (mouseX <= 250)
+    {
+      myX = myX + (int)(Math.random()*5)-5;
+    } else 
+    myX = myX + (int)(Math.random()*5)+1;
+    if (mouseY >= 250)
+      myY = myY + (int)(Math.random()*5)+1;
+    else
+      myY = myY + (int)(Math.random()*5)-5;
     if (myX >= 500)
       myX = 499;
     if (myY >= 500)
       myY = 499;
+    if (myX <= 0)
+      myX = 1;
+    if (myY <= 0)
+      myY = 1;
   }
   void show()
   {
     fill(r, g, b);
     ellipse(myX, myY, 10, 10);
   }
-
 }
